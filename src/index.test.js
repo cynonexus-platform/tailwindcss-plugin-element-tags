@@ -43,7 +43,7 @@ function run(config, css = '@tailwind utilities', plugin = tailwindcss) {
   })
 }
 
-test('addVariant', () => {
+test('addVariant direct child', () => {
   const config = {
     content: [
       {
@@ -55,6 +55,25 @@ test('addVariant', () => {
   return run(config).then(result => {
     expect(result.css).toMatchCss(String.raw`
 .div\:hidden > div {
+    display: none
+      }
+    `)
+  })
+})
+
+
+test('addVariant direct descendant', () => {
+  const config = {
+    content: [
+      {
+        raw: String.raw`<div class="_div:hidden"></div>`
+      }
+    ],
+  }
+
+  return run(config).then(result => {
+    expect(result.css).toMatchCss(String.raw`
+._div\:hidden div {
     display: none
       }
     `)

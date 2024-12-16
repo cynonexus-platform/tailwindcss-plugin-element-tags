@@ -237,5 +237,6 @@ export default definePlugin(({ addVariant }) => {
 
   tags.forEach((tag) => {
     addVariant(tag, `& > ${tag}`);
+    addVariant(`_${tag}`, `& ${tag}`);
   });
 });

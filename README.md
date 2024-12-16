@@ -33,14 +33,33 @@ export default {
 ```tsx
 import React from "react";
 
-function MyComponent() {
+function MyDirectChildComponent() {
   return (
     <div className="bg-red-900 text-white span:font-bold">
       {/* \/ here tag style that override ^^^^^^^^^^^^^^ */}
-      <span>MyComponent</span>
+      <span>MyDirectChildComponent</span>
     </div>
   );
 }
 
-export default MyComponent;
+export default MyDirectChildComponent;
+```
+
+```tsx
+import React from "react";
+
+function MyDirectDescendantComponent() {
+  return (
+    <div className="bg-red-900 text-white _span:font-bold">
+      {/* V here tag style that override  ^^^^^^^^^^^^^^ */}
+      <span>MyDirectDescendantComponent</span>
+      <div>
+        {/* V also here */}
+        <span>Also Here</span>
+      </div>
+    </div>
+  );
+}
+
+export default MyDirectDescendantComponent;
 ```
