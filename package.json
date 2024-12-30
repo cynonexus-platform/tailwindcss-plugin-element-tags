@@ -1,6 +1,6 @@
 {
   "name": "@cynonexus-platform/tailwindcss-plugin-element-tags",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an tailwindcss plugin for easily select html, svg and mathml tag easily ",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
